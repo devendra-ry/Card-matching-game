@@ -51,13 +51,13 @@ function start(r,l) {
     var isRunning = -1;
     $("#pause").click(function(){
         if(isRunning==-1){
-            $("#pause").html("Play");  
+            $("#pause").html(`<i class="fas fa-play"></i>`);  
             clearInterval(time);
             flag = 0;
             isRunning=0;
         }
         else{
-            $("#pause").html("Pause");
+            $("#pause").html(`<i class="fas fa-pause"></i>`);
             time = setInterval(timer,1000);
             flag = -1;
             isRunning=-1;
