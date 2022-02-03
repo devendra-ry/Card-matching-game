@@ -35,7 +35,6 @@ function start(r,l) {
     $("#moves").html("Moves: 0");
 
     var time = setInterval(timer,1000);
-    var flag = -1;
 
     function timer() {
       sec++;
@@ -48,48 +47,36 @@ function start(r,l) {
         $("#time").html("Time: 0"+min+":"+sec);
     };
     
-    var isRunning = -1;
-    $("#pause").click(function(){
-        if(isRunning==-1){
-            $("#pause").html(`<i class="fas fa-play"></i>`);  
-            clearInterval(time);
-            flag = 0;
-            isRunning=0;
-        }
-        else{
-            $("#pause").html(`<i class="fas fa-pause"></i>`);
-            time = setInterval(timer,1000);
-            flag = -1;
-            isRunning=-1;
-        }
-    });
-
-
-
     // var isRunning = -1;
     // $("#pause").click(function(){
     //     if(isRunning==-1){
-    //         $("#pause").html("Pause");
-    //         time = setInterval(function() {
-    //             sec++;
-    //             if(sec==60) {
-    //                 min++; sec=0;
-    //             }
-    //             if(sec<10) 
-    //                 $("#time").html("Time: 0"+min+":0"+sec);
-    //             else 
-    //             $("#time").html("Time: 0"+min+":"+sec);
-    //         },1000);
+    //         $("#pause").html(`<i class="fas fa-play"></i>`);  
+    //         clearInterval(time);
     //         isRunning=0;
     //     }
     //     else{
-    //         $("#pause").html("Play");
-            
-    //         clearInterval(time);
+    //         $("#pause").html(`<i class="fas fa-pause"></i>`);
+    //         time = setInterval(timer,1000);
     //         isRunning=-1;
+    //         $("#ol").fadeOut(700);
     //     }
     // });
 
+    $("#pause").click(function(){
+
+        $("#pause").html(`<i class="fas fa-play"></i>`);  
+        clearInterval(time);
+        $("#ol").html(`<center><div id="inst1"><h1>Paused!</h1></div><h3>Click on <button class="play">Play</button>to Continue!</h3></center>`);
+        $("#ol").fadeIn(700);
+
+        $(".play").click(function(){
+            $("#ol").fadeOut(700);
+            time = setInterval(timer,1000);
+        });
+
+    });
+
+    
 
     rem=r*l/2, noItems=rem;
     mode = r+"x"+l;
@@ -124,6 +111,8 @@ function start(r,l) {
     $("#ol").fadeOut(500);
 
 }
+
+
 
 //Function for flipping blocks
 
@@ -184,7 +173,7 @@ function change(x) {
               time = `${min} minute(s) and ${sec} second(s)`;
           }
           setTimeout(function() {
-              $("#ol").html(`<center><div id="ol"><h2>Congrats!</h2><p style="font-size:23px;padding:10px;">You completed the ${mode} mode in ${moves} moves. It took you ${time}.</p><p style="font-size:18px"> <label for="name">Enter Your Name</label> <input type="text" name="name"></input><br/>Play Again ?</p><button class="easy" onclick="start(3, 4)">Easy</button> <button class="medium" onclick="start(4, 5)">Medium</button><button class="hard" onclick="start(6, 6)">Hard</button><button class="leaderboard" onclick="">LeaderBoard</button></center>`);
+              $("#ol").html(`<center><div id="ol"><h2>Congrats!</h2><p style="font-size:23px;padding:10px;">You completed the ${mode} mode in ${moves} moves. It took you ${time}.</p><p style="font-size:18px"> <label>Enter Your Name: </label> <input type="text" name="name" placeholder="Name"></input><br/><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button><button class="font-effect-fire-animation" onclick="">LeaderBoard</button></center>`);
               $("#ol").fadeIn(750);
           }, 1500);
     }

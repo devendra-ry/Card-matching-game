@@ -34,6 +34,13 @@ table {
     margin-top: 80px;
 }
 
+input{
+    background-color: rgba(255,255,255,0.25);
+    border: 0.2px solid #ffff;
+    border-radius: 10px;
+    padding: 5px;
+}
+
 #inst {
     width: 85vw;
     background-color: rgba(255,255,255,0.1);
@@ -47,8 +54,7 @@ table {
 }
 
 #inst1{
-    
-    
+
     text-align: center;
     margin-top:16vh;
     -webkit-backdrop-filter: blur(10px);
@@ -153,6 +159,35 @@ table {
     font-size:16px;
 }
 
+.play{
+    background-color: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: (20px);
+    backdrop-filter: (20px);
+    color: white;
+    margin: 5px;
+    border: 0.1px solid #ffff;
+    border-radius: 10px;
+    font-weight: smaller;
+    width:100px;
+    font-size:18px;
+    padding-top:5px;
+    outline: none;
+}
+
+.playagain{
+    background-color: rgba(255,255,255,0.2);
+    -webkit-backdrop-filter: (20px);
+    backdrop-filter: (20px);
+    color: white;
+    margin: 5px;
+    border: 0.1px solid #ffff;
+    border-radius: 10px;
+    font-weight: smaller;
+    width:150px;
+    font-size:18px;
+    padding:5px;
+    outline: none;
+}
 
 #title {
     background-color: rgba(255,255,255,0.25);
