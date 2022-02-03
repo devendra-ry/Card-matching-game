@@ -173,7 +173,7 @@ function change(x) {
               time = `${min} minute(s) and ${sec} second(s)`;
           }
           setTimeout(function() {
-              $("#ol").html(`<center><div id="ol"><h2>Congrats!</h2><p style="font-size:23px;padding:10px;">You completed the ${mode} mode in ${moves} moves. It took you ${time}.</p><p style="font-size:18px"> <label>Enter Your Name: </label> <input type="text" name="name" placeholder="Name"></input><br/><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button><button class="font-effect-fire-animation" onclick="">LeaderBoard</button></center>`);
+              $("#ol").html(`<center><div id="ol"><h2>Congrats!</h2><p style="font-size:23px;padding:10px;">You completed this mode in ${moves} moves. It took you ${time}.</p><p style="font-size:18px"> <label>Enter Your Name : </label> <input type="text" name="name"></input><br/><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button><button class="font-effect-fire-animation" onclick="">LeaderBoard</button></center>`);
               $("#ol").fadeIn(750);
           }, 1500);
     }
