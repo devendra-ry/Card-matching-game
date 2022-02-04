@@ -22,10 +22,16 @@ function init() {
 
 //Showing instructions
 window.onload = function() {
-    $("#ol").html(`<center><div id="inst"><h3>Welcome !</h3>Instructions For Game<br/><br/><li>Make pairs of similiar blocks by flipping them.</li><li>To flip a block you can click on it.</li><li>If two blocks you clicked are not similar, they will be flipped back.</li><p style="font-size:18px;">Click one of the following mode to start the game.</p></div ><button class="easy" onclick="start(3, 4)">Easy</button> <button class="medium" onclick="start(4, 5)">Medium</button><button class="hard" onclick="start(6, 6)">Hard</button><button class="font-effect-fire-animation" onclick="">LeaderBoard</button></center>`);
+    $("#ol").html(`<center><div id="inst"><h3>Welcome !</h3>Instructions For Game<br/><br/><li>Make pairs of similiar blocks by flipping them.</li><li>To flip a block you can click on it.</li><li>If two blocks you clicked are not similar, they will be flipped back.</li><p style="font-size:18px;">Click one of the following mode to start the game.</p></div ><button class="easy" onclick="start(3, 4); sound();">Easy</button> <button class="medium" onclick="start(4, 5); sound();">Medium</button><button class="hard" onclick="start(6, 6); sound();">Hard</button><button class="font-effect-fire-animation" onclick="highscores(); sound();">LeaderBoard</button></center>`);
 }
 
+//Button Sounds
+var pauseAudio = new Audio("sound/pauseSoundEffect.mp3");
 
+function sound(){
+    var audio = new Audio("sound/mouseClick.mp3"); 
+    audio.play();
+};
 
 //Starting the game
 function start(r,l) {
@@ -63,7 +69,7 @@ function start(r,l) {
     // });
 
     $("#pause").click(function(){
-
+        pauseAudio.play();
         $("#pause").html(`<i class="fas fa-play"></i>`);  
         clearInterval(time);
         $("#ol").html(`<center><div id="inst1"><h1>Paused!</h1></div><h3>Click on <button class="play">Play</button>to Continue!</h3></center>`);
@@ -72,6 +78,8 @@ function start(r,l) {
         $(".play").click(function(){
             $("#ol").fadeOut(700);
             time = setInterval(timer,1000);
+            $("#pause").html(`<i class="fas fa-pause"></i>`);
+            // audio.play();
         });
 
     });
@@ -180,3 +188,17 @@ function change(x) {
   }
 }
 
+//LeaderBoard
+function highscores(){
+    $("#ol").html(`<center><div id="inst"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="highscores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+}
+
+// <table><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr></table>
+
+function mediumHighScore(){
+    $("#ol").html(`<center><div id="inst"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="highscores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button>    <br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+}
+
+function hardHighScore(){
+    $("#ol").html(`<center><div id="inst"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="highscores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button>    <br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+}
