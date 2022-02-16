@@ -314,4 +314,5 @@ button:hover{
 ::placeholder{
     color:white;
     opacity: 0.90;
+    letter-spacing : 1px;
 }
