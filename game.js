@@ -37,6 +37,7 @@ function sound(){
 //Starting the game
 function start(r,l) {
     //Timer and moves
+    
     min=0, sec=0, moves=0;
     $("#time").html("Time: 00:00");
     $("#moves").html("Moves: 0");
@@ -163,14 +164,25 @@ function change(x) {
           clearInterval(time);
           if (min==0) {
               time = `${sec} seconds`;
+              conversion = sec*100;
+              calculation = 50000 * 100/conversion;
+              calculation1 = calculation/moves;
+              calculation1 += 150;
+              score = (calculation1 | 0);
           }
           else {
               time = `${min} minute(s) and ${sec} second(s)`;
+              conversion = min*60 + sec;
+              conversion1 = conversion*100;
+              calculation = 50000 * 100/conversion1;
+              calculation1 = calculation/moves;
+              calculation1 += 150;
+              score = (calculation1 | 0);
           }
           setTimeout(function() {
-              $("#ol").html(`<center><div id="ol"><h1>You Win!</h1><p style="font-size:23px;padding:10px;">You completed this mode in ${moves} moves. It took you ${time}.</p><p style="font-size:18px"> <label>Enter Your Name : </label> <input type="text" name="name"></input><br/><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button><button class="font-effect-fire-animation" onclick="">LeaderBoard</button></center>`);
+              $("#ol").html(`<center><div id="ol"><h1 style="font-size:60px;">You Win!</h1><p style="font-size:30px;padding-top:30px;">Moves : ${moves} </p><p style="font-size:30px;"> Time : ${time}.</p> <p style="font-size:30px;">Score : ${score}</p> <label style="font-size:30px">Enter Your Name : </label> <input type="text" name="name"></input><br/><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);
               $("#ol").fadeIn(750);
-          }, 1500);
+        }, 1500);
     }
   }
 }
@@ -178,21 +190,21 @@ function change(x) {
 
 //pauseLeaderBoard
 function pauseLeaderBoard(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><table style="width: 65%"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="play">Resume</button></center>`);    
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="play">Resume</button></center>`);    
     clearInterval(time);
 }
 
 //LeaderBoard
 function easyHighScores(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table style="width: 70%"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
 }
 
 // <table><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr></table>
 
 function mediumHighScore(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table style="width: 70%"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
 }
 
 function hardHighScore(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table style="width: 70%"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
 }
