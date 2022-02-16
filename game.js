@@ -25,6 +25,23 @@ window.onload = function() {
     $("#ol").html(`<center><div id="inst"><h3>Welcome !</h3>Instructions For Game<br/><br/><li>Make pairs of similiar blocks by flipping them.</li><li>To flip a block you can click on it.</li><li>If two blocks you clicked are not similar, they will be flipped back.</li><p style="font-size:18px;">Click one of the following mode to start the game.</p></div ><button class="easy" onclick="start(3, 4); sound();">Easy</button> <button class="medium" onclick="start(4, 5); sound();">Medium</button><button class="hard" onclick="start(6, 6); sound();">Hard</button><button class="font-effect-fire-animation" onclick="easyHighScores(); sound();">LeaderBoard</button></center>`);
 }
 
+
+//LeaderBoard
+function easyHighScores(){
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+}
+
+// <table><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr></table>
+
+function mediumHighScore(){
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+}
+
+function hardHighScore(){
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
+}
+
+
 //Button Sounds
 var pauseAudio = new Audio("sound/pauseSoundEffect.mp3");
 
@@ -108,6 +125,11 @@ function start(r,l) {
 
 }
 
+//pauseLeaderBoard
+function pauseLeaderBoard(){
+    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="play">Resume</button></center>`);    
+    clearInterval(time);
+}
 
 
 //Function for flipping blocks
@@ -180,31 +202,17 @@ function change(x) {
               score = (calculation1 | 0);
           }
           setTimeout(function() {
-              $("#ol").html(`<center><div id="ol"><h1 style="font-size:60px;">You Win!</h1><p style="font-size:30px;padding-top:30px;">Moves : ${moves} </p><p style="font-size:30px;"> Time : ${time}.</p> <p style="font-size:30px;">Score : ${score}</p> <label style="font-size:30px">Enter Your Name : </label> <input type="text" name="name"></input><br/><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);
+              $("#ol").html(`<center><div id="ol"><h1 class="youWin" style="font-size:60px;">You Win!</h1><p style="font-size:30px;">Moves : ${moves} </p><p style="font-size:30px;"> Time : ${time}.</p> <p style="font-size:30px;">Score : ${score}</p> <form method="post"> <label style="font-size:30px">Enter Leaderboard : </label> <input type="text" name="username"></input><button class="go" type="submit" onclick="easyHighScores()">Go</button></form><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);
               $("#ol").fadeIn(750);
         }, 1500);
     }
   }
 }
 
+//endLeaderBoard
+// function endLeaderBoard(){
+//     $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);    
+//     clearInterval(time);
+// }
 
-//pauseLeaderBoard
-function pauseLeaderBoard(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="play">Resume</button></center>`);    
-    clearInterval(time);
-}
-
-//LeaderBoard
-function easyHighScores(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
-}
-
-// <table><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr></table>
-
-function mediumHighScore(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
-}
-
-function hardHighScore(){
-    $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><button class="easy" onclick="easyHighScores(); sound();">Easy</button> <button class="medium" onclick="mediumHighScore(); sound();">Medium</button><button class="hard" onclick="hardHighScore(); sound();">Hard</button><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Game</a></button></center>`);    
-}
+//    $("#ol").html(`<center><div id="inst"><h3>Welcome !</h3>Instructions For Game<br/><br/><li>Make pairs of similiar blocks by flipping them.</li><li>To flip a block you can click on it.</li><li>If two blocks you clicked are not similar, they will be flipped back.</li><p style="font-size:18px;">Click one of the following mode to start the game.</p></div ><button class="easy" onclick="start(3, 4); sound();">Easy</button> <button class="medium" onclick="start(4, 5); sound();">Medium</button><button class="hard" onclick="start(6, 6); sound();">Hard</button><button class="font-effect-fire-animation" onclick="easyHighScores(); sound();">LeaderBoard</button></center>`);
