@@ -202,7 +202,7 @@ function change(x) {
               score = (calculation1 | 0);
           }
           setTimeout(function() {
-              $("#ol").html(`<center><div id="ol"><h1 class="youWin" style="font-size:60px;">You Win!</h1><p style="font-size:30px;">Moves : ${moves} </p><p style="font-size:30px;"> Time : ${time}.</p> <p style="font-size:30px;">Score : ${score}</p> <form method="post"> <label style="font-size:30px">Enter Leaderboard : </label> <input type="text" name="username"></input><button class="go" type="submit" onclick="easyHighScores()">Go</button></form><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);
+              $("#ol").html(`<center><div id="ol"><h1 class="youWin" style="font-size:60px;">You Win!</h1><p style="font-size:30px;">Moves : ${moves} </p><p style="font-size:30px;"> Time : ${time}.</p> <p style="font-size:30px;">Score : ${score}</p> <form method="post"> <label style="font-size:30px">Enter Leaderboard : </label> <input type="text" name="username" placeholder="Username"></input><button class="go" type="submit" onclick="easyHighScores()">Go</button></form><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);
               $("#ol").fadeIn(750);
         }, 1500);
     }

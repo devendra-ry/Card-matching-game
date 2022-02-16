@@ -311,6 +311,7 @@ button:hover{
     background-color: rgba(0,0,200,0.1);
 }
 
-.youWin{
-    display: inline-block;
+::placeholder{
+    color:white;
+    opacity: 0.90;
 }
