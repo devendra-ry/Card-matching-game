@@ -55,13 +55,12 @@ function sound(){
 function start(r,l) {
     //Timer and moves
     
-    min=0, sec=0, moves=0;
+    min=0; sec=0; moves=0;
     $("#time").html("Time: 00:00");
     $("#moves").html("Moves: 0");
 
-    var time = setInterval(timer,1000);
-
-    function timer() {
+    var timer = function() {
+        
       sec++;
       if(sec==60) {
           min++; sec=0;
@@ -70,7 +69,10 @@ function start(r,l) {
           $("#time").html("Time: 0"+min+":0"+sec);
       else 
         $("#time").html("Time: 0"+min+":"+sec);
+
     };
+
+    var time = setInterval(timer,1000);
 
     $("#pause").click(function(){
         pauseAudio.play();
@@ -89,6 +91,10 @@ function start(r,l) {
 
     });
 
+    $("#reset").click(function(){
+        sec = -1;
+        reStart(r,l);
+    });
     
 
     rem=r*l/2, noItems=rem;
@@ -119,11 +125,10 @@ function start(r,l) {
          }
          $(".tablerow").append("</tr>");
     }
-    
     //Hiding instructions screen
     $("#ol").fadeOut(500);
-
 }
+
 
 //pauseLeaderBoard
 function pauseLeaderBoard(){
@@ -131,9 +136,48 @@ function pauseLeaderBoard(){
     clearInterval(time);
 }
 
+//restarting game
+function reStart(r,l){
+    //moves set to 0
+    moves = 0;
+    $("#moves").html("Moves: 0");
+
+    $(".tablerow").fadeOut(250);
+
+    //setting rem to og value
+    rem=r*l/2, noItems=rem;
+
+    //shuffling array
+    var items = [];
+    for (var i=0;i<noItems;i++)
+        items.push(em[i]);
+    for (var i=0;i<noItems;i++)
+        items.push(em[i]);
+    var tmp, c, p = items.length;
+    if(p) while(--p) {
+        c = Math.floor(Math.random() * (p + 1));
+        tmp = items[c];
+        items[c] = items[p];
+        items[p] = tmp;
+    }
+
+    //Creating table
+    $(".tablerow").html("");
+    var n=1;
+    for (var i = 1;i<=r;i++) {
+        $(".tablerow").append("<tr>");
+        for (var j = 1;j<=l;j++) {
+        $(".tablerow").append(`<td id='${n}' onclick="change(${n})"><div class='inner'><div class='front'></div><div class='back'><p>${items[n-1]}</p></div></div></td>`);
+        n++;
+
+        }
+        $(".tablerow").append("</tr>");
+    }
+        $(".tablerow").fadeIn(250);
+}
+
 
 //Function for flipping blocks
-
 function change(x) {
   //Variables
   let i = "#"+x+" .inner";
@@ -162,6 +206,7 @@ function change(x) {
       //If blocks flipped are same
       else {
           rem--;
+          console.log(rem);
           $(i).attr("flip", "block");
           $(pID).attr("flip", "block");
       }
