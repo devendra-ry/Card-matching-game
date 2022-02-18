@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Biryani:wght@800&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation");
 * {
-    font-family: 'Life Savers',cursive;
+    font-family: 'Life Savers',regular;
+    letter-spacing : 1px;
 }
 html {
     width:100vw;
@@ -90,6 +91,7 @@ input{
 
 #ol {
     position: absolute;
+     background-color: rgba(0,0,200,0.1);
     height:100vh;
     width:100vw;
     color: white;
@@ -228,7 +230,7 @@ input{
             backdrop-filter: blur(15px);
     border-radius:10px;
     margin: 8px;
-    margin-top:0px;
+    margin-top:10px;
     color: white;
     height:56px;
     text-align: center;
@@ -265,7 +267,10 @@ input{
 
 #logo {
     font-size: 40px;
+    padding-top: 5px;
     display: block;
+    color: white;
+    text-align: center;
 }
 
 .inner {
