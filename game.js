@@ -92,7 +92,7 @@ function start(r,l) {
     });
 
     $("#reset").click(function(){
-        sec = -1; min = 0;
+        sec = -1;
         reStart(r,l);
     });
     
