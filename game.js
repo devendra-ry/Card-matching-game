@@ -92,6 +92,8 @@ function start(r,l) {
     });
 
     $("#reset").click(function(){
+        sound();
+        min = 0;
         sec = -1;
         reStart(r,l);
     });
