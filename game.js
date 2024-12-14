@@ -254,14 +254,4 @@ function change(x) {
         }, 1500);
     }
   }
-}
-
-//endLeaderBoard
-// function endLeaderBoard(){
-//     $("#ol").html(`<center><div id="inst1"><h1>LeaderBoard !</h1></div><br/><table class = "leaderboardTable"><tr><th>Rank</th><th>Username</th><th>Moves</th><th>Time</th><th>Score</th></tr></table><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);    
-//     clearInterval(time);
-// }
-
-//    $("#ol").html(`<center><div id="inst"><h3>Welcome !</h3>Instructions For Game<br/><br/><li>Make pairs of similiar blocks by flipping them.</li><li>To flip a block you can click on it.</li><li>If two blocks you clicked are not similar, they will be flipped back.</li><p style="font-size:18px;">Click one of the following mode to start the game.</p></div ><button class="easy" onclick="start(3, 4); sound();">Easy</button> <button class="medium" onclick="start(4, 5); sound();">Medium</button><button class="hard" onclick="start(6, 6); sound();">Hard</button><button class="font-effect-fire-animation" onclick="easyHighScores(); sound();">LeaderBoard</button></center>`);
-//    $("#ol").html(`<center><div id="ol"><h1 class="youWin" style="font-size:60px;">You Win!</h1><p style="font-size:30px;">Moves :  </p><p style="font-size:30px;"> Time : .</p> <p style="font-size:30px;">Score : </p> <form method="post"> <label style="font-size:30px">Enter Leaderboard : </label> <input type="text" name="username" placeholder="Username"></input><button class="go" type="submit" onclick="easyHighScores()">Go</button></form><br/><button class="playagain"><a href="https://prembhimavat.github.io/Card-matching-game/">Play Again ?</a></button></center>`);
-              
+}    
